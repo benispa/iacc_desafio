@@ -1,0 +1,19 @@
+{
+  "name": "iacc_desafio",
+  "version": "1.0.0",
+  "description": "Desafío Ténico: Ingeniero de Desarrollo Fullstack",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benispa/iacc_desafio.git"
+  },
+  "author": "Benjamín Islas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benispa/iacc_desafio/issues"
+  },
+  "homepage": "https://github.com/benispa/iacc_desafio#readme"
+}
