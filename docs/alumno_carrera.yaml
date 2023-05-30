@@ -1,0 +1,125 @@
+
+paths:
+  /alumno_carrera:
+    get:
+      tags:
+        - Alumno_Carrera
+      summary: Obtiene lista de todos los alumnos y las carreras en la que están o han estado registrados.
+      produces:
+      - application/json
+      responses:
+        200:
+          description: Listado de alumnos registrados.
+    post:
+      tags:
+        - Alumno_Carrera
+      summary: Registra un alumno a una carrera
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: Alumno_carrera
+        description: Contiene los datos de registro
+        required: true
+        schema:
+          $ref: '#/definitions/Alumno_carrera' 
+      responses:
+        200:
+          description: Registro realizado correctamente.
+  /alumno_carrera/{rut}/{codigo}:
+    get:
+      tags:
+        - Alumno_Carrera
+      summary: Obtiene los datos de un alumno registrado en una carrera
+      parameters:
+        - name: rut
+          in: path
+          required: true
+          description: Rut del alumno
+          schema:
+            type: integer
+            format: int64
+            minimum: 1        
+        - name: codigo
+          in: path
+          required: true
+          description: Código numérico de la carrera
+          schema:
+            type: integer
+            format: int64
+            minimum: 1          
+      produces:
+      - application/json
+      responses:
+        200:
+          description: Datos del alumno registrado en una carrera
+    put:
+      tags:
+        - Alumno_Carrera
+      summary: Modifica los datos de un alumno registrado en una carrera
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: Alumno_carrera
+        description: Contiene los datos de registro
+        required: true
+        schema:
+          $ref: '#/definitions/Alumno_carrera' 
+      - name: rut
+        in: path
+        required: true
+        description: Rut del alumno
+        schema:
+          type: integer
+          format: int64
+          minimum: 1        
+      - name: codigo
+        in: path
+        required: true
+        description: Código numérico de la carrera
+        schema:
+          type: integer
+          format: int64
+          minimum: 1        
+      responses:
+        200:
+          description: Carrera modificada exitosamente
+    delete:
+      tags:
+        - Alumno_Carrera
+      summary: Elimina una carrera
+      parameters:
+        - name: rut
+          in: path
+          required: true
+          description: Rut del alumno
+          schema:
+            type: integer
+            format: int64
+            minimum: 1        
+        - name: codigo
+          in: path
+          required: true
+          description: Código numérico de la carrera
+          schema:
+            type: integer
+            format: int64
+            minimum: 1        
+      produces:
+      - application/json
+      responses:
+        200:
+          description: Registro eliminado correctamente      
+definitions:
+  Alumno_carrera:
+    type: object
+    properties:
+      rut:
+        type: number
+      codigo:
+        type: number
+      fecha_inicio:
+        type: string
+      fecha_final:
+        type: string

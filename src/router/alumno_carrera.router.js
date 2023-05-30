@@ -97,13 +97,13 @@ router.put("/:rut/:codigo", async (req, res) => {
         res.status(200).json({
             ok: true,
             status: 200,
-            msg: updateAlumnoCarrera
+            msg: "Registro modificado correctamente"
         })        
     } catch (error) {
         res.status(500).json({
             ok: false,
             status: 500,
-            msg: error
+            msg: "Se encontró un error al modificar la información. Verifique la información ingresada."
         })          
     }
 })
@@ -125,7 +125,7 @@ router.delete("/:rut/:codigo", async(req, res) => {
         res.status(200).json({
             ok: true,
             status: 200,
-            msg: deleteAlumnoCarrera   
+            msg: "Registro eliminado correctamente"  
         });         
     } catch (error) {
         res.status(500).json({

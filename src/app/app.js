@@ -2,11 +2,31 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require("cors");
-const swaggerUI = require("swagger-ui-express");
-const docs = require('../../docs/basicInfo');
+const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerUi = require('swagger-ui-express');
 
 //Express
 const app = express();
+
+//Swagger
+const swaggerDefinition = {
+    info: {
+        title: 'REST API for my App', // Title of the documentation
+        version: '1.0.0', // Version of the app
+        description: 'This is the REST API for my product', // short description of the app
+    },
+    host: 'localhost:3000', // the host or url of the app
+    basePath: '/api', // the basepath of your endpoint
+};
+
+const options = {
+    swaggerDefinition,
+    apis: ['./docs/**/*.yaml'],
+};
+
+const swaggerSpec = swaggerJSDoc(options);
+
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 //Definir Rutas
 const routerAlumnos = require('../router/alumno.router');
@@ -25,7 +45,6 @@ app.get ('/', (req, res) => {
 });
 
 app.use(cors());
-app.use('/api-docs',swaggerUI.serve,swaggerUI.setup(docs));
 app.use("/api/alumnos", routerAlumnos);
 app.use("/api/carreras", routerCarreras);
 app.use("/api/alumno_carrera", routerAlumnoCarrera);

@@ -84,7 +84,7 @@ router.put("/:codigo", async (req, res) => {
         res.status(200).json({
             ok: true,
             status: 200,
-            msg: updateCarrera
+            msg: "Carrera actualizada correctamente"
         })        
     } catch (error) {
         res.status(500).json({
@@ -108,7 +108,7 @@ router.delete("/:codigo", async(req, res) => {
         res.status(200).json({
             ok: true,
             status: 200,
-            msg: deleteCarrera   
+            msg: "Carrera eliminada correctamente"
         });         
     } catch (error) {
         res.status(500).json({

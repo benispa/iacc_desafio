@@ -100,7 +100,7 @@ router.put("/:rut", async (req, res) => {
         res.status(200).json({
             ok: true,
             status: 200,
-            msg: updateAlumno
+            msg: "Alumno modificado correctamente"
         })        
     } catch (error) {
         res.status(500).json({
@@ -124,7 +124,7 @@ router.delete("/:rut", async(req, res) => {
         res.status(200).json({
             ok: true,
             status: 200,
-            msg: deleteAlumno   
+            msg: "Alumno eliminado correctamente" 
         });         
     } catch (error) {
         res.status(500).json({

@@ -1,0 +1,97 @@
+
+paths:
+  /carreras:
+    get:
+      tags:
+        - Carrera
+      summary: Obtiene lista de todas las carreras.
+      produces:
+      - application/json
+      responses:
+        200:
+          description: Listado de carreras
+    post:
+      tags:
+        - Carrera
+      summary: Registra una carrera
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: Carrera
+        description: Contiene los datos de una carrera
+        required: true
+        schema:
+          $ref: '#/definitions/Carrera' 
+      responses:
+        200:
+          description: Carrera registrada exitosamente
+  /carreras/{codigo}:
+    get:
+      tags:
+        - Carrera
+      summary: Obtiene los datos de una carrera
+      parameters:
+        - name: codigo
+          in: path
+          required: true
+          description: Código numérico de la carrera
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      produces:
+      - application/json
+      responses:
+        200:
+          description: Datos de una carrera
+    put:
+      tags:
+        - Carrera
+      summary: Modifica los datos de una carrera
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: Carrera
+        description: Contiene los datos de una carrera
+        required: true
+        schema:
+          $ref: '#/definitions/Carrera' 
+      - name: codigo
+        in: path
+        required: true
+        description: Código numérico de la carrera
+        schema:
+          type: integer
+          format: int64
+          minimum: 1000000          
+      responses:
+        200:
+          description: Carrera modificada exitosamente
+    delete:
+      tags:
+        - Carrera
+      summary: Elimina una carrera
+      parameters:
+        - name: codigo
+          in: path
+          required: true
+          description: Código de la carrera
+          schema:
+            type: integer
+            format: int64
+            minimum: 1000000      
+      produces:
+      - application/json
+      responses:
+        200:
+          description: Carrera eliminada exitosamente       
+definitions:
+  Carrera:
+    type: object
+    properties:
+      codigo:
+        type: number
+      nombre:
+        type: string

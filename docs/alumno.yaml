@@ -1,0 +1,103 @@
+
+paths:
+  /alumnos:
+    get:
+      tags:
+        - Alumno
+      summary: Obtiene lista de todos los alumnos.
+      produces:
+      - application/json
+      responses:
+        200:
+          description: Listado de alumnos
+    post:
+      tags:
+        - Alumno
+      summary: Registra un alumno
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: Alumno
+        description: Contiene los datos de un alumno
+        required: true
+        schema:
+          $ref: '#/definitions/Alumno' 
+      responses:
+        200:
+          description: Alumno registrado exitosamente
+  /alumnos/{rut}:
+    get:
+      tags:
+        - Alumno
+      summary: Obtiene los datos de un alumno
+      parameters:
+        - name: rut
+          in: path
+          required: true
+          description: Rut del alumno sin código verificador
+          schema:
+            type: integer
+            format: int64
+            minimum: 1000000
+      produces:
+      - application/json
+      responses:
+        200:
+          description: Datos de un alumno
+    put:
+      tags:
+        - Alumno
+      summary: Modifica los datos de un alumno
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: Alumno
+        description: Contiene los datos de un alumno
+        required: true
+        schema:
+          $ref: '#/definitions/Alumno' 
+      - name: rut
+        in: path
+        required: true
+        description: Rut del alumno sin código verificador
+        schema:
+          type: integer
+          format: int64
+          minimum: 1000000          
+      responses:
+        200:
+          description: Alumno modificado exitosamente
+    delete:
+      tags:
+        - Alumno
+      summary: Elimina a un alumno
+      parameters:
+        - name: rut
+          in: path
+          required: true
+          description: Rut del alumno sin código verificador
+          schema:
+            type: integer
+            format: int64
+            minimum: 1000000      
+      produces:
+      - application/json
+      responses:
+        200:
+          description: Alumno eliminado exitosamente       
+definitions:
+  Alumno:
+    type: object
+    properties:
+      rut:
+        type: number
+      dv:
+        type: number
+      nombres:
+        type: string
+      apellido_paterno:
+        type: string
+      apellido_materno:
+        type: string
