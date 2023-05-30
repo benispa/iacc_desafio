@@ -52,3 +52,13 @@ Principalmente, la funcionalidad desarrollada ocupa los siguientes componentes:
 * DELETE - `/api/alumno_carrera/(rut)/(codigo)`: Elimina el registro. Requiere rut y código de carrera.
 
 ## Pruebas de Carga
+
+Para realizar pruebas de carga, ejecutar el comando `npm run test`.
+
+Para modificar los parámetros de las pruebas, abrir el archivo `test.yml` y cambiar los siguientes parámetros según corresponda.
+
+* `target`: Permite cambiar la ruta a probar.
+* `duration`: Duración de la prueba.
+* `arrivalRate`: Cantidad de peticiones que se enviarán por segundo mientras dure la prueba.
+
+Adicionalmente, modificar la línea `get` por el tipo de petición que corresponda.
