@@ -66,3 +66,19 @@ Para modificar los parámetros de las pruebas, abrir el archivo `test.yml` y cam
 * `arrivalRate`: Cantidad de peticiones que se enviarán por segundo mientras dure la prueba.
 
 Adicionalmente, modificar la línea `get` por el tipo de petición que corresponda.
+
+## Pruebas de Carga
+
+Para realizar pruebas de carga, ejecutar el comando `npm run test`.
+
+Para modificar los parámetros de las pruebas, abrir el archivo `test.yml` y cambiar los siguientes parámetros según corresponda.
+
+* `target`: Permite cambiar la ruta a probar.
+* `duration`: Duración de la prueba.
+* `arrivalRate`: Cantidad de peticiones que se enviarán por segundo mientras dure la prueba.
+
+Adicionalmente, modificar la línea `get` por el tipo de petición que corresponda.
+
+## Swagger
+
+Para facilitar la visualización y prueba de los diferentes endpoints de la API, se instaló swagger, el cual puede ser accedido mediante la ruta `/docs`
