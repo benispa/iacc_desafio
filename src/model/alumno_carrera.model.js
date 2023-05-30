@@ -26,6 +26,4 @@ Alumno_Carrera.init({
     modelName: "Alumno_Carrera",
 });
 
-sequelize.sync();
-
 module.exports = Alumno_Carrera;
