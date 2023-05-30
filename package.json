@@ -4,7 +4,9 @@
   "description": "Desafío Ténico: Ingeniero de Desarrollo Fullstack",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "start": "nodemon src/index.js",
+    "dev": "npx nodemon src/index.js",
+    "test": "artillery run -e staging test.yml"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,18 @@
   "bugs": {
     "url": "https://github.com/benispa/iacc_desafio/issues"
   },
-  "homepage": "https://github.com/benispa/iacc_desafio#readme"
+  "homepage": "https://github.com/benispa/iacc_desafio#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.3.3",
+    "sequelize": "^6.31.1",
+    "swagger-ui-express": "^4.6.3"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.0.2",
+    "nodemon": "^2.0.22"
+  }
 }
