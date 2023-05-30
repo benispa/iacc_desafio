@@ -7,6 +7,10 @@ Principalmente, la funcionalidad desarrollada ocupa los siguientes componentes:
 * Base de Datos - MySQL
 * ORM - Sequelize
 
+## Otros detalles
+
+* Se requiere una base de datos MySQL **vacía**. El ORM se encargará de crear las tabla y atributos necesarios.
+
 ## Configuraciones de Inicio
 
 * Ejecutar el comando `npm i` para instalar las dependencias.
